@@ -1,2 +1,3 @@
-# weather-dashboard
-Production-ready full-stack Weather Dashboard with real-time API integration, forecast, dark mode, and clean UI/UX.
+# Weather Dashboard
+
+Full-stack Weather Dashboard with real-time weather data, 5-day forecast, dark mode, and responsive UI.

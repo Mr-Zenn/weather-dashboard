@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── TOP NAV ── -->
+  <header class="navbar">
+    <div class="brand">
+      <i class="fa-solid fa-cloud-sun"></i>
+      <span>WeatherDash</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </header>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="container">
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Search city (e.g. London, Tokyo, New York)..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">Search</button>
+      </div>
+      <!-- Error message -->
+      <p class="error-msg hidden" id="errorMsg">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="errorText">City not found</span>
+      </p>
+    </section>
+
+    <!-- Recent Searches -->
+    <section class="recent-section hidden" id="recentSection">
+      <p class="section-label">Recent Searches</p>
+      <div class="recent-tags" id="recentTags"></div>
+    </section>
+
+    <!-- Loading Spinner -->
+    <div class="spinner hidden" id="spinner">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      <span>Fetching weather...</span>
+    </div>
+
+    <!-- ── WEATHER CARD ── -->
+    <section class="weather-card hidden" id="weatherCard">
+
+      <!-- City + Date -->
+      <div class="card-header">
+        <div>
+          <h2 class="city-name" id="cityName">--</h2>
+          <p class="date-time" id="dateTime">--</p>
+        </div>
+        <img class="weather-icon" id="weatherIcon" src="" alt="weather icon"/>
+      </div>
+
+      <!-- Temperature + Condition -->
+      <div class="temp-block">
+        <span class="temperature" id="temperature">--</span>
+        <span class="unit">°C</span>
+        <p class="condition" id="condition">--</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat">
+          <i class="fa-solid fa-droplet"></i>
+          <span class="stat-value" id="humidity">--</span>
+          <span class="stat-label">Humidity</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-wind"></i>
+          <span class="stat-value" id="windSpeed">--</span>
+          <span class="stat-label">Wind</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-eye"></i>
+          <span class="stat-value" id="visibility">--</span>
+          <span class="stat-label">Visibility</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-temperature-half"></i>
+          <span class="stat-value" id="feelsLike">--</span>
+          <span class="stat-label">Feels Like</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-sun"></i>
+          <span class="stat-value" id="sunrise">--</span>
+          <span class="stat-label">Sunrise</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-moon"></i>
+          <span class="stat-value" id="sunset">--</span>
+          <span class="stat-label">Sunset</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-gauge"></i>
+          <span class="stat-value" id="pressure">--</span>
+          <span class="stat-label">Pressure</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-cloud"></i>
+          <span class="stat-value" id="clouds">--</span>
+          <span class="stat-label">Cloud Cover</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5-DAY FORECAST ── -->
+    <section class="forecast-section hidden" id="forecastSection">
+      <p class="section-label">5-Day Forecast</p>
+      <div class="forecast-strip" id="forecastStrip"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
