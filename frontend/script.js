@@ -15,6 +15,8 @@ const forecastSection = document.getElementById('forecastSection');
 const recentSection = document.getElementById('recentSection');
 const recentTags    = document.getElementById('recentTags');
 const themeToggle   = document.getElementById('themeToggle');
+const emptyState    = document.getElementById('emptyState');
+const clearRecentsBtn = document.getElementById('clearRecentsBtn');
 
 // ── Theme ──
 const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -48,6 +50,7 @@ async function search(city) {
   searchBtn.disabled = true;
   hide(weatherCard);
   hide(forecastSection);
+  hide(emptyState);
 
   try {
     const [weather, forecast] = await Promise.all([
@@ -186,6 +189,21 @@ function formatTime(unix) {
 function formatDay(dtTxt) {
   return new Date(dtTxt).toLocaleDateString('en-US', { weekday: 'short' });
 }
+
+// ── Clear recent searches ──
+clearRecentsBtn.addEventListener('click', () => {
+  localStorage.removeItem('recentSearches');
+  renderRecents();
+});
+
+// ── Empty state suggestions ──
+document.getElementById('emptyState').addEventListener('click', e => {
+  if (e.target.classList.contains('tag')) {
+    const city = e.target.dataset.city;
+    cityInput.value = city;
+    search(city);
+  }
+});
 
 // ── Init: load recents on page load ──
 renderRecents();

@@ -47,8 +47,24 @@
 
     <!-- Recent Searches -->
     <section class="recent-section hidden" id="recentSection">
-      <p class="section-label">Recent Searches</p>
+      <div class="recent-header">
+        <p class="section-label">Recent Searches</p>
+        <button class="clear-btn" id="clearRecentsBtn">Clear</button>
+      </div>
       <div class="recent-tags" id="recentTags"></div>
+    </section>
+
+    <!-- ── EMPTY STATE ── -->
+    <section class="empty-state" id="emptyState">
+      <i class="fa-solid fa-cloud-sun empty-icon"></i>
+      <h2 class="empty-title">Weather Dashboard</h2>
+      <p class="empty-subtitle">Search any city to get real-time weather and 5-day forecast</p>
+      <div class="empty-suggestions">
+        <span class="suggestion-label">Try:</span>
+        <button class="tag" data-city="Delhi">Delhi</button>
+        <button class="tag" data-city="Mumbai">Mumbai</button>
+        <button class="tag" data-city="London">London</button>
+      </div>
     </section>
 
     <!-- Loading Spinner -->
