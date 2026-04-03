@@ -51,6 +51,8 @@ async function search(city) {
   hide(weatherCard);
   hide(forecastSection);
   hide(emptyState);
+  emptyState.style.opacity = '0';
+  setTimeout(() => hide(emptyState), 250);
 
   try {
     const [weather, forecast] = await Promise.all([
