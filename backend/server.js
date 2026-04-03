@@ -14,7 +14,13 @@ const limiter = rateLimit({
   message: { error: 'Too many requests, please try again later.' },
 });
 
-app.use(cors({ origin: ['http://localhost:5500', 'http://127.0.0.1:5500'] }));
+app.use(cors({
+  origin: [
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    /\.vercel\.app$/,
+  ],
+}));
 app.use(express.json());
 app.use('/api/', limiter);
 

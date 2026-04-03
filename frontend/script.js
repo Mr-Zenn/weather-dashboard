@@ -1,4 +1,7 @@
-const API_BASE = 'http://localhost:5000/api/weather';
+const IS_PROD = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+const API_BASE = IS_PROD
+  ? 'https://weather-dashboard-api-i5z9.onrender.com/api/weather'
+  : 'http://localhost:5000/api/weather';
 const MAX_RECENT = 5;
 
 // ── DOM refs ──
